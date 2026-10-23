@@ -4,195 +4,1112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All About Apple Juice</title>
+    <title>Apple Juice | Nature in Every Sip</title>
 
     <style>
-        /* Main webpage styling */
-        body {
-            font-family: Arial, sans-serif;
+        /* ===== GLOBAL STYLES ===== */
+        :root {
+            --green: #103d2e;
+            --dark-green: #082a20;
+            --red: #ed3947;
+            --yellow: #ffc94a;
+            --cream: #fffaf0;
+            --text: #18332b;
+            --muted: #65736b;
+        }
+
+        * {
             margin: 0;
-            background-color: #fff8e8;
-            color: #333333;
-            line-height: 1.8;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
-        /* Website header */
-        header {
-            background-color: #c62828;
-            color: white;
-            text-align: center;
-            padding: 35px;
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.7;
         }
 
-        header h1 {
-            font-size: 42px;
-            margin-bottom: 5px;
-        }
-
-        /* Navigation bar */
-        nav {
-            background-color: #8e1717;
-            text-align: center;
-            padding: 12px;
-        }
-
-        nav a {
-            color: white;
+        a {
             text-decoration: none;
-            margin: 15px;
-            font-weight: bold;
+            color: inherit;
         }
 
-        nav a:hover {
-            color: #ffdf75;
-        }
-
-        /* Main content area */
-        main {
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 25px;
-        }
-
-        section {
-            background-color: white;
-            padding: 25px;
-            margin-bottom: 25px;
-            border-radius: 12px;
-            box-shadow: 0 3px 8px #dddddd;
-        }
-
-        h2 {
-            color: #c62828;
-        }
-
-        /* Apple juice image */
-        .juice-image {
+        img {
             display: block;
             width: 100%;
-            max-width: 600px;
-            height: 300px;
             object-fit: cover;
-            margin: 20px auto;
-            border-radius: 12px;
         }
 
-        /* Highlighted facts */
-        .fact {
-            background-color: #fff0b3;
-            padding: 15px;
-            border-left: 5px solid #e0a800;
-            margin: 15px 0;
+        .container {
+            width: min(1160px, 90%);
+            margin: auto;
         }
 
-        /* Footer */
-        footer {
-            background-color: #8e1717;
+        .eyebrow {
+            color: var(--red);
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.15;
+            letter-spacing: -1.5px;
+            margin-bottom: 18px;
+        }
+
+        .section-description {
+            color: var(--muted);
+            max-width: 560px;
+        }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(8, 42, 32, 0.96);
+            backdrop-filter: blur(15px);
             color: white;
+            border-bottom: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .nav-inner {
+            min-height: 76px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .logo {
+            font-size: 1.35rem;
+            font-weight: 850;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: var(--yellow);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 27px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .nav-links a {
+            transition: color 0.25s;
+        }
+
+        .nav-links a:hover {
+            color: var(--yellow);
+        }
+
+        .nav-button {
+            background: var(--red);
+            padding: 11px 20px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            transition: transform 0.25s, background 0.25s;
+        }
+
+        .nav-button:hover {
+            background: #d92c39;
+            transform: translateY(-2px);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 570px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            color: white;
+            overflow: hidden;
+            background:
+                linear-gradient(90deg,
+                    rgba(5, 28, 19, 0.94) 0%,
+                    rgba(5, 28, 19, 0.78) 43%,
+                    rgba(5, 28, 19, 0.12) 100%),
+                url("https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=1800&q=90")
+                center 48% / cover no-repeat;
+        }
+
+        .hero-content {
+            max-width: 650px;
+            padding: 85px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero .eyebrow {
+            color: var(--yellow);
+        }
+
+        .hero h1 {
+            font-size: clamp(3.2rem, 7vw, 6rem);
+            line-height: 1.02;
+            letter-spacing: -4px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: var(--yellow);
+        }
+
+        .hero p {
+            color: #e4e9e3;
+            font-size: 1.08rem;
+            max-width: 490px;
+            margin-bottom: 32px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--red);
+            color: white;
+            padding: 14px 25px;
+            border-radius: 35px;
+            font-weight: 750;
+            transition: 0.25s;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(237, 57, 71, 0.25);
+        }
+
+        .hero-note {
+            margin-top: 24px;
+            font-size: 0.82rem;
+            color: #e1e9de;
+        }
+
+        /* ===== HIGHLIGHT STRIP ===== */
+        .highlights {
+            background: var(--yellow);
+            padding: 18px 0;
+        }
+
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             text-align: center;
-            padding: 20px;
+            gap: 15px;
         }
 
-        /* Mobile-friendly layout */
+        .highlight {
+            font-size: 0.95rem;
+            font-weight: 800;
+        }
+
+        .highlight span {
+            margin-right: 7px;
+        }
+
+        /* ===== ABOUT ===== */
+        .about {
+            padding: 100px 0;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            height: 470px;
+            border-radius: 28px;
+            box-shadow: 0 25px 55px rgba(24, 51, 43, 0.15);
+        }
+
+        .image-badge {
+            position: absolute;
+            bottom: 25px;
+            left: -20px;
+            background: white;
+            padding: 18px 23px;
+            border-radius: 18px;
+            box-shadow: 0 10px 35px #00000018;
+            font-weight: 800;
+        }
+
+        .image-badge span {
+            color: var(--red);
+        }
+
+        .about-copy p {
+            margin-bottom: 20px;
+            color: var(--muted);
+        }
+
+        .text-link {
+            display: inline-block;
+            margin-top: 8px;
+            font-weight: 800;
+            color: var(--green);
+            border-bottom: 2px solid var(--yellow);
+        }
+
+        /* ===== BENEFITS ===== */
+        .benefits {
+            background: #edf3e7;
+            padding: 100px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-heading .section-description {
+            margin: 0 auto;
+        }
+
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 28px 23px;
+            border-radius: 22px;
+            border: 1px solid #e2eadd;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(16, 61, 46, 0.1);
+        }
+
+        .benefit-icon {
+            width: 57px;
+            height: 57px;
+            display: grid;
+            place-items: center;
+            background: #fff0d0;
+            border-radius: 18px;
+            font-size: 1.7rem;
+            margin-bottom: 22px;
+        }
+
+        .benefit-card:nth-child(even) .benefit-icon {
+            background: #fce3e5;
+        }
+
+        .benefit-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.12rem;
+        }
+
+        .benefit-card p {
+            font-size: 0.91rem;
+            color: var(--muted);
+        }
+
+        .nutrition-note {
+            margin-top: 30px;
+            padding: 20px 25px;
+            background: #ffedbd;
+            border-radius: 16px;
+            font-size: 0.91rem;
+        }
+
+        /* ===== PRODUCTION PROCESS ===== */
+        .process {
+            background: var(--dark-green);
+            color: white;
+            padding: 100px 0;
+        }
+
+        .process .eyebrow {
+            color: var(--yellow);
+        }
+
+        .process .section-description {
+            color: #c0d2c6;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+            margin-top: 50px;
+        }
+
+        .process-card {
+            background: rgba(255,255,255,0.055);
+            border: 1px solid rgba(255,255,255,0.13);
+            border-radius: 20px;
+            padding: 14px;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .process-card:hover {
+            background: rgba(255,255,255,0.12);
+            transform: translateY(-6px);
+        }
+
+        .process-card img {
+            height: 155px;
+            border-radius: 13px;
+            margin-bottom: 18px;
+        }
+
+        .step-number {
+            display: inline-grid;
+            place-items: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--yellow);
+            color: var(--dark-green);
+            font-weight: 900;
+            margin-bottom: 12px;
+        }
+
+        .process-card h3 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .process-card p {
+            font-size: 0.84rem;
+            color: #c0d2c6;
+        }
+
+        /* ===== FUN FACTS ===== */
+        .facts {
+            padding: 100px 0;
+        }
+
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .fact-card {
+            padding: 30px;
+            background: white;
+            border-radius: 22px;
+            border: 1px solid #eee9dc;
+            box-shadow: 0 8px 28px rgba(24, 51, 43, 0.04);
+        }
+
+        .fact-card .number {
+            color: var(--red);
+            font-size: 2.6rem;
+            font-weight: 900;
+            letter-spacing: -2px;
+        }
+
+        .fact-card h3 {
+            margin: 8px 0;
+        }
+
+        .fact-card p {
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        /* ===== CALL TO ACTION ===== */
+        .cta {
+            padding: 0 0 90px;
+        }
+
+        .cta-box {
+            background: linear-gradient(120deg, #f4c84e, #ffdf86);
+            padding: 55px 35px;
+            text-align: center;
+            border-radius: 30px;
+            color: var(--dark-green);
+        }
+
+        .cta-box h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        .cta-box p {
+            margin: 0 auto 25px;
+            max-width: 550px;
+        }
+
+        .dark-button {
+            display: inline-block;
+            background: var(--dark-green);
+            color: white;
+            padding: 13px 25px;
+            border-radius: 30px;
+            font-weight: 750;
+            transition: transform 0.25s;
+        }
+
+        .dark-button:hover {
+            transform: translateY(-3px);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #061e17;
+            color: #d6e3da;
+            padding: 45px 0;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-logo {
+            color: white;
+            font-size: 1.25rem;
+            font-weight: 850;
+        }
+
+        footer p {
+            font-size: 0.86rem;
+            color: #aabeb1;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            font-size: 0.88rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--yellow);
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 900px) {
+            .nav-links {
+                gap: 14px;
+            }
+
+            .nav-button {
+                display: none;
+            }
+
+            .about-grid {
+                gap: 35px;
+            }
+
+            .benefit-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-card img {
+                height: 190px;
+            }
+
+            .facts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 600px) {
-            header h1 {
-                font-size: 30px;
+            .nav-inner {
+                padding: 15px 0;
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 12px;
             }
 
-            nav a {
-                display: inline-block;
-                margin: 5px;
+            .nav-links {
+                width: 100%;
+                flex-wrap: wrap;
+                gap: 14px;
+                font-size: 0.8rem;
             }
 
-            main {
-                padding: 15px;
+            .hero {
+                min-height: 520px;
+                background-position: 58% center;
+            }
+
+            .hero-content {
+                padding: 65px 0;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .highlight-grid {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .about,
+            .benefits,
+            .process,
+            .facts {
+                padding: 70px 0;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image img {
+                height: 330px;
+            }
+
+            .image-badge {
+                left: 12px;
+                bottom: 12px;
+            }
+
+            .benefit-grid,
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-card img {
+                height: 220px;
+            }
+
+            .cta {
+                padding-bottom: 60px;
+            }
+
+            .cta-box {
+                padding: 40px 22px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                align-items: flex-start;
             }
         }
+
+        /* Respect reduced-motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                scroll-behavior: auto !important;
+                transition: none !important;
+            }
+     }
+        
+/* ===== SCROLL REVEAL ANIMATIONS ===== */
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s cubic-bezier(.2, .7, .2, 1);
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered card animations */
+.benefit-card,
+.process-card,
+.fact-card {
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        background 0.35s ease;
+}
+
+/* ===== JUICE SPLASH EFFECT ===== */
+.hero {
+    isolation: isolate;
+}
+
+.juice-splash {
+    position: absolute;
+    z-index: -1;
+    right: 8%;
+    top: 15%;
+    width: 290px;
+    height: 290px;
+    border-radius: 42% 58% 63% 37% / 42% 37% 63% 58%;
+    background:
+        radial-gradient(circle at 35% 30%,
+            #ffe99a 0%,
+            #ffbb36 25%,
+            #e97818 60%,
+            #bd4912 100%);
+    opacity: 0.30;
+    filter: blur(1px);
+    animation: splashMorph 7s ease-in-out infinite alternate;
+}
+
+.juice-splash::before,
+.juice-splash::after {
+    content: "";
+    position: absolute;
+    background: #ffc94a;
+    border-radius: 50%;
+}
+
+.juice-splash::before {
+    width: 45px;
+    height: 45px;
+    top: -15px;
+    right: 30px;
+    animation: dropletFloat 3s ease-in-out infinite;
+}
+
+.juice-splash::after {
+    width: 25px;
+    height: 25px;
+    bottom: 15px;
+    left: -18px;
+    animation: dropletFloat 4s ease-in-out infinite reverse;
+}
+
+@keyframes splashMorph {
+    from {
+        transform: rotate(-12deg) scale(0.92);
+        border-radius: 42% 58% 63% 37% / 42% 37% 63% 58%;
+    }
+    to {
+        transform: rotate(12deg) scale(1.08);
+        border-radius: 60% 40% 35% 65% / 50% 60% 40% 50%;
+    }
+}
+
+@keyframes dropletFloat {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-18px) scale(1.1);
+    }
+}
+
+/* ===== APPLE CURSOR ===== */
+.cursor-apple {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    font-size: 23px;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.2s;
+    will-change: transform;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    body.custom-cursor,
+    body.custom-cursor a,
+    body.custom-cursor button {
+        cursor: none;
+    }
+
+    body.custom-cursor .cursor-apple {
+        opacity: 1;
+    }
+}
+
+/* ===== BACK TO TOP ===== */
+.back-to-top {
+    position: fixed;
+    z-index: 90;
+    right: 25px;
+    bottom: 25px;
+    width: 52px;
+    height: 52px;
+    border: none;
+    border-radius: 50%;
+    background: #ed3947;
+    color: white;
+    font-size: 24px;
+    box-shadow: 0 8px 25px #ed394744;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: 0.3s ease;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: #103d2e;
+    transform: translateY(-4px);
+}
+
+/* Accessible motion settings */
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .juice-splash,
+    .juice-splash::before,
+    .juice-splash::after {
+        animation: none;
+    }
+}
+
     </style>
 </head>
 
 <body>
 
-    <header>
-        <h1>🍎 All About Apple Juice</h1>
-        <p>Sweet, refreshing, and made from apples!</p>
-    </header>
-
+    <!-- NAVIGATION -->
     <nav>
-        <a href="#about">About</a>
-        <a href="#benefits">Benefits</a>
-        <a href="#making">How It's Made</a>
-        <a href="#facts">Fun Facts</a>
+        <div class="container nav-inner">
+            <a href="#home" class="logo">🍎 Apple<span>Juice.</span></a>
+
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#benefits">Benefits</a>
+                <a href="#process">How It's Made</a>
+                <a href="#facts">Fun Facts</a>
+            </div>
+
+            <a href="#benefits" class="nav-button">Explore More →</a>
+        </div>
     </nav>
 
-    <main>
+    <!-- HERO SECTION -->
+    <header class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="eyebrow">Pure · Natural · Delicious</div>
 
-        <section id="about">
-            <h2>What Is Apple Juice?</h2>
+                <h1>
+                    Nature's Best.<br>
+                    <span>In Every Sip.</span>
+                </h1>
 
-            <p>
-                Apple juice is a popular drink made by extracting
-                the liquid from fresh apples. It has a sweet taste
-                and can be enjoyed cold or at room temperature.
-            </p>
+                <p>
+                    Discover the refreshing taste of apple juice.
+                    Sweet, golden, and inspired by nature,
+                    it's a classic drink with a fresh perspective.
+                </p>
 
-            <img
-                class="juice-image"
-                src="https://images.unsplash.com/photo-1576673442511-ee2b1e5d5a1f?auto=format&fit=crop&w=1000&q=80"
-                alt="Refreshing apple juice"
-            >
+                <a href="#about" class="button">
+                    Discover Apple Juice <span>→</span>
+                </a>
 
-            <p>
-                Apple juice is available in many forms, including
-                fresh, filtered, cloudy, and concentrated juice.
-            </p>
-        </section>
-
-        <section id="benefits">
-            <h2>Benefits of Apple Juice</h2>
-
-            <ul>
-                <li>Provides energy from natural carbohydrates.</li>
-                <li>Contains water that contributes to hydration.</li>
-                <li>Provides small amounts of certain vitamins and minerals.</li>
-                <li>Can be enjoyed as part of a balanced diet.</li>
-            </ul>
-
-            <div class="fact">
-                <strong>Remember:</strong> Apple juice usually contains
-                less fiber and can contain more sugar per serving
-                than eating a whole apple.
+                <div class="hero-note">
+                    ✦ Made from one of nature's favorite fruits
+                </div>
             </div>
-        </section>
+        </div>
+    </header>
 
-        <section id="making">
-            <h2>How Is Apple Juice Made?</h2>
+    <!-- HIGHLIGHTS -->
+    <section class="highlights">
+        <div class="container highlight-grid">
+            <div class="highlight"><span>🍎</span> Apple Goodness</div>
+            <div class="highlight"><span>☀️</span> Naturally Sweet</div>
+            <div class="highlight"><span>🥤</span> Refreshingly Delicious</div>
+        </div>
+    </section>
 
-            <ol>
-                <li>Apples are picked from trees.</li>
-                <li>The apples are washed and inspected.</li>
-                <li>They are crushed or pressed to extract the juice.</li>
-                <li>The juice may be filtered and pasteurized.</li>
-                <li>It is packaged and prepared for drinking.</li>
-            </ol>
-        </section>
+    <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+        <div class="container about-grid">
 
-        <section id="facts">
-            <h2>Fun Facts About Apples</h2>
+            <div class="about-image">
+                <img
+                    src="https://images.unsplash.com/photo-1576673442511-ee2b1e5d5a1f?auto=format&fit=crop&w=1000&q=85"
+                    alt="Fresh apple juice"
+                    loading="lazy"
+                >
 
-            <ul>
-                <li>There are thousands of apple varieties worldwide.</li>
-                <li>Apples are members of the rose family.</li>
-                <li>Apple juice can be made from different apple varieties.</li>
-                <li>Apple juice is used in smoothies, sauces, and recipes.</li>
-            </ul>
-        </section>
+                <div class="image-badge">
+                    Fresh flavor. <span>Real apples.</span>
+                </div>
+            </div>
 
-    </main>
+            <div class="about-copy">
+                <div class="eyebrow">01 — The Basics</div>
 
+                <h2 class="section-title">
+                    What Makes Apple Juice So Special?
+                </h2>
+
+                <p>
+                    Apple juice is made by extracting liquid from
+                    fresh apples. Its sweet flavor, golden color,
+                    and refreshing taste make it a popular drink
+                    around the world.
+                </p>
+
+                <p>
+                    Depending on how it's processed, apple juice
+                    can be clear and filtered or cloudy with more
+                    of the fruit's natural components remaining.
+                </p>
+
+                <p>
+                    From breakfast tables to smoothies and recipes,
+                    apple juice is a versatile drink that fits
+                    many occasions.
+                </p>
+
+                <a href="#process" class="text-link">
+                    See how it's made →
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="benefits" id="benefits">
+        <div class="container">
+
+            <div class="section-heading">
+                <div class="eyebrow">02 — The Good Stuff</div>
+                <h2 class="section-title">Why People Love Apple Juice</h2>
+                <p class="section-description">
+                    A familiar favorite with a sweet taste,
+                    useful nutrients, and plenty of ways to enjoy it.
+                </p>
+            </div>
+
+            <div class="benefit-grid">
+
+                <article class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>Quick Energy</h3>
+                    <p>
+                        Carbohydrates in apple juice provide
+                        energy your body can use.
+                    </p>
+                </article>
+
+                <article class="benefit-card">
+                    <div class="benefit-icon">💧</div>
+                    <h3>Hydration</h3>
+                    <p>
+                        Its water content contributes to your
+                        daily fluid intake.
+                    </p>
+                </article>
+
+                <article class="benefit-card">
+                    <div class="benefit-icon">🍏</div>
+                    <h3>Fruit Nutrients</h3>
+                    <p>
+                        Apple juice contains some nutrients,
+                        although amounts vary by product.
+                    </p>
+                </article>
+
+                <article class="benefit-card">
+                    <div class="benefit-icon">✨</div>
+                    <h3>Versatile Flavor</h3>
+                    <p>
+                        Enjoy it chilled, blend it into smoothies,
+                        or use it in recipes.
+                    </p>
+                </article>
+
+            </div>
+
+            <div class="nutrition-note">
+                <strong>💡 Good to know:</strong>
+                Whole apples generally provide more fiber than
+                apple juice. Juice can also contain substantial
+                amounts of sugar, even when no sugar is added.
+                Enjoy it in sensible portions as part of a balanced diet.
+            </div>
+
+        </div>
+    </section>
+
+    <!-- HOW IT IS MADE -->
+    <section class="process" id="process">
+        <div class="container">
+
+            <div class="eyebrow">03 — From Orchard to Glass</div>
+
+            <h2 class="section-title">How Apple Juice Is Made</h2>
+
+            <p class="section-description">
+                Every bottle starts with apples and moves through
+                several steps before it's ready to enjoy.
+            </p>
+
+            <div class="process-grid">
+
+                <article class="process-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=500&q=80"
+                        alt="Apples ready for harvesting"
+                        loading="lazy"
+                    >
+                    <div class="step-number">1</div>
+                    <h3>Harvest</h3>
+                    <p>Ripe apples are picked from trees.</p>
+                </article>
+
+                <article class="process-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1570913149827-d2ac84ab3f9a?auto=format&fit=crop&w=500&q=80"
+                        alt="Fresh apples being prepared"
+                        loading="lazy"
+                    >
+                    <div class="step-number">2</div>
+                    <h3>Wash & Inspect</h3>
+                    <p>Apples are cleaned and checked.</p>
+                </article>
+
+                <article class="process-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?auto=format&fit=crop&w=500&q=80"
+                        alt="Fresh apples ready for processing"
+                        loading="lazy"
+                    >
+                    <div class="step-number">3</div>
+                    <h3>Crush & Press</h3>
+                    <p>The fruit is pressed to extract juice.</p>
+                </article>
+
+                <article class="process-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=500&q=80"
+                        alt="Fresh juice in a glass"
+                        loading="lazy"
+                    >
+                    <div class="step-number">4</div>
+                    <h3>Filter & Pasteurize</h3>
+                    <p>Processing depends on the type of juice.</p>
+                </article>
+
+                <article class="process-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1576673442511-ee2b1e5d5a1f?auto=format&fit=crop&w=500&q=80"
+                        alt="Apple juice ready to drink"
+                        loading="lazy"
+                    >
+                    <div class="step-number">5</div>
+                    <h3>Package</h3>
+                    <p>The juice is packaged and prepared for sale.</p>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FUN FACTS -->
+    <section class="facts" id="facts">
+        <div class="container">
+
+            <div class="section-heading">
+                <div class="eyebrow">04 — Apple Trivia</div>
+                <h2 class="section-title">A Few Juicy Facts</h2>
+                <p class="section-description">
+                    There's more to apples than meets the eye.
+                </p>
+            </div>
+
+            <div class="facts-grid">
+
+                <article class="fact-card">
+                    <div class="number">01</div>
+                    <h3>Part of the Rose Family</h3>
+                    <p>
+                        Apples belong to the Rosaceae family,
+                        along with pears, peaches, and roses.
+                    </p>
+                </article>
+
+                <article class="fact-card">
+                    <div class="number">02</div>
+                    <h3>Many Varieties</h3>
+                    <p>
+                        Different apple varieties can produce
+                        juice with different flavors and sweetness.
+                    </p>
+                </article>
+
+                <article class="fact-card">
+                    <div class="number">03</div>
+                    <h3>More Than a Drink</h3>
+                    <p>
+                        Apple juice can be used in sauces,
+                        marinades, smoothies, and baked recipes.
+                    </p>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-box">
+                <div class="eyebrow">Keep It Fresh</div>
+                <h2>Good Things Grow Naturally.</h2>
+                <p>
+                    Celebrate the simple flavor of apples.
+                    Learn something new, explore the process,
+                    and enjoy every refreshing sip.
+                </p>
+                <a href="#home" class="dark-button">
+                    Back to the Top ↑
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer>
-        <p>🍎 Thanks for visiting All About Apple Juice!</p>
-        <p>Fresh ideas. Sweet information.</p>
+        <div class="container footer-inner">
+            <a href="#home" class="footer-logo">🍎 AppleJuice.</a>
+
+            <p>Inspired by nature. Made for curious minds.</p>
+
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#benefits">Benefits</a>
+                <a href="#facts">Facts</a>
+            </div>
+        </div>
     </footer>
 
 </body>
